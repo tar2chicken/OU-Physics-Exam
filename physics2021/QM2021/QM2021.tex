@@ -1,0 +1,404 @@
+\documentclass[../../ou-physics-exam.tex]{subfiles}
+
+\begin{document}
+\subsection*{問題3}
+\addcontentsline{toc}{subsection}{問題3}
+\markboth{2021年度}{問題3}
+調和振動子ポテンシャルの下で運動する電子に関する以下の問いに答えよ. 
+電子の質量を $ m $ , 調和振動子ポテンシャルの角振動数を $ \omega $ , プランク定数を $ 2 \pi $ で割ったものを $ \hbar $ とする.
+
+\problem{1}
+まず, $ x $ 軸上を動く電子の1次元調和振動子ポテンシャルの下での運動を考える. 
+電子のハミルトニアンは以下のように与えられる.
+\begin{align*}
+    H = \frac{p^2}{2m} + \frac{1}{2} m \omega^2 x^2
+\end{align*}
+ただし $ \displaystyle p = \frac{\hbar}{i} \pdv{x} $ である. 
+昇降演算子を
+\begin{align*}
+    a^{\dagger} = \sqrt{\frac{m \omega}{2 \hbar}} \qty(x - i \frac{p}{m \omega}) , \quad a = \sqrt{\frac{m \omega}{2 \hbar}} \qty(x + i \frac{p}{m \omega})
+\end{align*}
+と定義することで, $ \displaystyle H = \hbar \omega \qty(a^{\dagger} a + \frac{1}{2}) $ と書ける.
+
+\question{1}
+基底状態 $ \phi_0 (x) $ は $ a \phi_0 (x) = 0 $ より求まる. 
+$ \phi_0 (x) = \exp (- \lambda x^2) $ とおいて, 定数 $ \lambda $ を求めよ. 
+また, エネルギー固有値 $ \epsilon_0 $ を求めよ.
+\begin{answer}
+    $ a \phi_0 (x) = 0 $ より,
+    \begin{align*}
+        \qty(x + i \frac{p}{m \omega}) \phi_0 (x) = \qty(x + \frac{\hbar}{m \omega} \pdv{x}) \exp (- \lambda x^2) = \qty(x + \frac{\hbar}{m \omega} \cdot (-2 \lambda x)) \exp (- \lambda x^2) = 0.
+    \end{align*}
+    よって, $ \displaystyle \lambda = \frac{m \omega}{2 \hbar} $ である. 
+    また,
+    \begin{align*}
+        H \phi_0 (x) = \hbar \omega \qty(a^{\dagger} a + \frac{1}{2}) \phi_0 (x) = \frac{1}{2} \hbar \omega \phi_0 (x)
+    \end{align*}
+    より, 基底状態のエネルギーは $ \displaystyle \epsilon_0 = \frac{1}{2} \hbar \omega $ である.
+\end{answer}
+
+\question{2}
+第1励起状態は $ \phi_1 (x) = a^{\dagger} \phi_0 (x) $ により求まる. 
+$ \phi_1 (x) $ とそのエネルギー固有値 $ \epsilon_1 $ を求めよ. 
+波動関数の規格化はしなくて良い.
+\begin{answer}
+    \begin{align*}
+        \qty(x - i \frac{p}{m \omega}) \phi_0 (x) 
+        & = \qty(x - \frac{\hbar}{m \omega} \pdv{x}) \exp \qty(- \frac{m \omega}{2 \hbar} x^2) \\[2mm]
+        & = \qty[x - \frac{\hbar}{m \omega} \cdot \qty(- \frac{m \omega}{\hbar}x)] \exp \qty(- \frac{m \omega}{2 \hbar} x^2) \\[2mm]
+        & = 2x \exp \qty(- \frac{m \omega}{2 \hbar} x^2).
+    \end{align*}
+    よって, 第1励起状態は
+    \begin{align*}
+        \phi_1 (x) = a^{\dagger} \phi_0 (x) = \sqrt{\frac{m \omega}{2 \hbar}} \qty(x - i \frac{p}{m \omega}) \phi_0 (x) = \sqrt{\frac{2m \omega}{\hbar}} x \exp \qty(- \frac{m \omega}{2 \hbar} x^2).
+    \end{align*}
+    また, $ [a, a^{\dagger}] = a a^{\dagger} - a^{\dagger} a = 1 $ より,
+    \begin{align*}
+        a^{\dagger} a \phi_1 (x) = a^{\dagger} a a^{\dagger} \phi_0(x) = a^{\dagger} (a^{\dagger} a + 1) \phi_0 (x) = a^{\dagger} \phi_0 (x) = \phi_1 (x).
+    \end{align*}
+    よって,
+    \begin{align*}
+        H \phi_1 (x) = \hbar \omega \qty(a^{\dagger} a + \frac{1}{2}) \phi_1 (x) = \hbar \omega \qty(1 + \frac{1}{2}) \phi_1 (x)
+    \end{align*}
+    より, 第1励起状態のエネルギーは $ \displaystyle \epsilon_1 = \frac{3}{2} \hbar \omega $ である.
+\end{answer}
+
+\problem{2}
+$ xy $ 面上を動く電子の2次元調和振動子ポテンシャルの下での運動を考える. 
+電子のハミルトニアンは以下のように与えられる.
+\begin{align*}
+    H = \frac{1}{2m} (p_x^2 + p_y^2) + \frac{1}{2} m \omega^2 (x^2 + y^2)
+\end{align*}
+ただし, $ \displaystyle p_x = \frac{\hbar}{i} \pdv{x}, \; p_y = \frac{\hbar}{i} \pdv{y} $ である. 
+$ H $ の固有関数は $ f(x)g(y) $ の形で書くことができる.
+
+\question{3}
+$ H $ のエネルギー固有値を値の小さい方から $ E_0 < E_1 < E_2 < \cdots $ と書くとき, $ E_0, \, E_1 $ の値と, それぞれの縮重度を求めよ. 
+また, 対応する固有状態を $ \phi_0, \, \phi_1 $ を用いて表せ. 
+波動関数の規格化はしなくて良い.
+\begin{answer}
+    $ x $ に関する昇降演算子を $ a_x^{\dagger}, a_x $ として, $ y $ に関する昇降演算子を $ a_y^{\dagger}, a_y $ とすると, ハミルトニアンは
+    \begin{align*}
+        H = \hbar \omega \qty(a_x^{\dagger} a_x + \frac{1}{2}) + \hbar \omega \qty(a_y^{\dagger} a_y + \frac{1}{2})
+    \end{align*}
+    と書けるので, $ x, y $ に関するハミルトニアンをそれぞれ
+    \begin{align*}
+        H_x = \hbar \omega \qty(a_x^{\dagger} a_x + \frac{1}{2}), \quad H_y = \hbar \omega \qty(a_y^{\dagger} a_y + \frac{1}{2})
+    \end{align*}
+    とすると, ハミルトニアンは $ H = H_x + H_y $ と書ける.
+
+    ここで, $ H $ の固有状態を $ f(x)g(y) \neq 0 $ , 固有値を $ E $ とする. 
+    このとき, $ H f(x)g(y) = g(y) H_x f(x) + f(x) H_y g(y) = E f(x)g(y) $ となるので,
+    \begin{align*}
+        f(x) \big[H_y g(y) - E g(y) \big] + \big[H_x f(x) \big] g(y) = 0
+    \end{align*}
+    となる. 
+    もし, $ f(x) $ が $ H_x $ の固有状態でなければ, $ f(x) $ と $ H_x f(x) $ は線形独立なので $ g(y) = 0 $ となるが, これは $ f(x)g(y) \neq 0 $ と矛盾する. 
+    よって, $ f(x) $ は $ H_x $ の固有状態でなければならず, 同様に $ g(y) $ も $ H_y $ の固有状態でなければならない. 
+    また, $ H_x $ の $ f(x) $ についての固有値を $ E_x $ として, $ H_y $ の $ g(y) $ についての固有値を $ E_y $ とすると,
+    \begin{align*}
+        H f(x)g(y) = (E_x + E_y) f(x)g(y)
+    \end{align*}
+    となる.
+
+    $ H $ の固有値は $ H_x, H_y $ の固有値の和なので, 基底状態と第1励起状態のエネルギーは
+    \begin{align*}
+        E_0 & = \epsilon_0 + \epsilon_0 = \hbar \omega \\
+        E_1 & = \epsilon_0 + \epsilon_1 = 2 \hbar \omega
+    \end{align*}
+    となる. 
+    基底状態は $ \phi_0 (x) \phi_0 (y) $ だけなので縮重度は1で, 第1励起状態は $ \phi_0 (x) \phi_1 (y), \; \phi_1 (x) \phi_0 (y) $ の2つの状態があるので縮重度は2である.
+\end{answer}
+
+\question{4}
+$ xy $ 面に垂直な角運動量の成分は $ L_z = xp_y - yp_x $ で与えられる. 
+$ [L_z, H] $ はいくらか. 
+簡単な理由とともに答えよ（計算せずに答えて良い）.
+\begin{answer}
+    調和振動子ポテンシャルは中心力ポテンシャルなので, トルクはなく角運動量は保存する. 
+    よって, $ [L_z, H] = 0 $ である.
+\end{answer}
+\begin{supplement}
+    $ x, p $ とハミルトニアンとの交換関係は
+    \begin{align*}
+        & \qty[x, \qty(\frac{p^2}{2m} + \frac{1}{2} m \omega^2 x^2)] = \frac{1}{2m} [x, p^2] = \frac{1}{2m} \big([x, p]p + p[x, p] \big) = \frac{i \hbar}{m} p, \\[2mm]
+        & \qty[p, \qty(\frac{p^2}{2m} + \frac{1}{2} m \omega^2 x^2)] = \frac{1}{2} m \omega^2 [p, x^2] = \frac{1}{2} m \omega^2 \big([p, x]x + x[p, x] \big) = -i \hbar m \omega^2 x
+    \end{align*}
+    となるから,
+    \begin{align*}
+        [L_z, H] 
+        & = [(xp_y - yp_x), H] \\
+        & = [xp_y, H] - [yp_x, H] \\
+        & = x[p_y, H] + [x, H]p_y - y[p_x, H] - [y, H]p_x \\
+        & = x[p_y, H_y] + [x, H_x]p_y - y[p_x, H_x] -[y, H_y]p_x \\
+        & = x (-i \hbar m \omega^2 y) + \frac{i \hbar}{m} p_x p_y - y (-i \hbar m \omega^2 x) - \frac{i \hbar}{m} p_yp_x \\
+        & = 0
+    \end{align*}
+    と示せる. 
+    あるいは, 昇降演算子とハミルトニアンとの交換関係
+    \begin{align*}
+        & \qty[a^{\dagger}, \hbar \omega \qty(a^{\dagger} a + \frac{1}{2})] = \hbar \omega [a^{\dagger}, a^{\dagger} a] = \hbar \omega \qty([a^{\dagger}, a^{\dagger}] a + a^{\dagger} [a^{\dagger}, a]) = - \hbar \omega a^{\dagger}, \\[2mm]
+        & \qty[a, \hbar \omega \qty(a^{\dagger} a + \frac{1}{2})] = \hbar \omega [a, a^{\dagger} a] = \hbar \omega \qty([a, a^{\dagger}] a + a^{\dagger} [a, a]) = \hbar \omega a
+    \end{align*}
+    と, のちに示す関係式
+    \begin{align*}
+        L_z = \frac{\hbar}{i} \qty(a_x^{\dagger} a_y - a_x a_y^{\dagger})
+    \end{align*}
+    を用いると
+    \begin{align*}
+        \qty[L_z, H] 
+        & = \frac{\hbar}{i} \qty[\qty(a_x^{\dagger} a_y - a_x a_y^{\dagger}), \qty(H_x + H_y)] \\
+        & = \frac{\hbar}{i} \big(a_y [a_x^{\dagger}, H_x] + a_x^{\dagger} [a_y, H_y] - a_y^{\dagger} [a_x, H_x] - a_x [a_y^{\dagger}, H_y] \big) \\
+        & = \frac{\hbar}{i} \qty[a_y (- \hbar \omega a_x^{\dagger}) + a_x^{\dagger} (\hbar \omega a_y) - a_y^{\dagger} (\hbar \omega a_x) - a_x (- \hbar \omega a_y^{\dagger})] \\
+        & = 0
+    \end{align*}
+    と示せる.
+\end{supplement}
+
+\question{5}
+$ E_0 $ に対応する状態が $ L_z $ の固有状態であることを示し, その固有値を求めよ.
+\begin{answer}
+    $ \displaystyle \lambda = \frac{m \omega}{2 \hbar} $ とすると,
+    \begin{align*}
+        L_z \phi_0 (x) \phi_0 (y) 
+        & = \frac{\hbar}{i} \qty(x \pdv{y} - y \pdv{x}) \exp [- \lambda (x^2 + y^2)] \\[2mm]
+        & = \frac{\hbar}{i} \big[x \cdot (-2 \lambda y) - y \cdot (-2 \lambda x) \big] \exp [- \lambda (x^2 + y^2)] \\
+        & = 0
+    \end{align*}
+    より, 基底状態は $ L_z $ の固有値0に属する固有状態である.
+\end{answer}
+
+\question{6}
+$ E_1 $ に対応する状態は, 適切な線形結合を取ることにより, $ L_z $ の固有状態にすることができる. 
+そのようにして得られた状態に対して, $ L_z $ の固有値を求めよ.
+\begin{answer}
+    昇降演算子は
+    \begin{align*}
+        a^{\dagger} = \sqrt{\frac{m \omega}{2 \hbar}} \qty(x - i \frac{p}{m \omega}) , \quad a = \sqrt{\frac{m \omega}{2 \hbar}} \qty(x + i \frac{p}{m \omega})
+    \end{align*}
+    なので,
+    \begin{align*}
+        x = \sqrt{\frac{\hbar}{2m \omega}} (a + a^{\dagger}), \quad p = \frac{1}{i} \sqrt{\frac{\hbar m \omega}{2}} (a - a^{\dagger})
+    \end{align*}
+    が成り立つ. 
+    また, $ x $ と $ y $ との昇降演算子は可換なので,
+    \begin{align*}
+        L_z 
+        & = xp_y - yp_x \\
+        & = \frac{\hbar}{2i} \qty[\qty(a_x + a_x^{\dagger}) \qty(a_y - a_y^{\dagger}) - \qty(a_y + a_y^{\dagger}) \qty(a_x - a_x^{\dagger})] \\
+        & = \frac{\hbar}{2i} \qty(2a_x^{\dagger} a_y - 2a_x a_y^{\dagger}) \\
+        & = \frac{\hbar}{i} \qty(a_x^{\dagger} a_y - a_x a_y^{\dagger})
+    \end{align*}
+    が成り立つ. 
+    さらに, $ a \phi_1 (x) = a a^{\dagger} \phi_0 (x) = \qty(a^{\dagger} a + 1) \phi_0 (x) = \phi_0 (x) $ より,
+    \begin{align*}
+        L_z \phi_0 (x) \phi_1 (y) = \frac{\hbar}{i} \phi_1 (x) \phi_0 (y), \quad L_z \phi_1 (x) \phi_0 (y) = - \frac{\hbar}{i} \phi_0 (x) \phi_1 (y)
+    \end{align*}
+    なので,
+    \begin{align*}
+        L_z 
+        \begin{pmatrix}
+            \phi_0 (x) \phi_1 (y) \\
+            \phi_1 (x) \phi_0 (y)
+        \end{pmatrix}
+        = 
+        \begin{pmatrix}
+            0 & -i \hbar \\
+            i \hbar & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            \phi_0 (x) \phi_1 (y) \\
+            \phi_1 (x) \phi_0 (y)
+        \end{pmatrix}
+    \end{align*}
+    となる.
+    $ L_z $ の表現行列を対角化すると
+    \begin{align*}
+        \begin{pmatrix}
+            0 & -i \hbar \\
+            i \hbar & 0
+        \end{pmatrix}
+        = \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1 & 1 \\
+            i & -i
+        \end{pmatrix}
+        \begin{pmatrix}
+            \hbar & 0 \\
+            0 & - \hbar
+        \end{pmatrix}
+        \frac{1}{\sqrt{2}} 
+        \begin{pmatrix}
+            1 & -i \\
+            1 & i
+        \end{pmatrix}
+    \end{align*}
+    となるので, それと $ L_z $ の線形性から,
+    \begin{align*}
+        & \quad L_z \qty[ \frac{1}{\sqrt{2}} 
+        \begin{pmatrix}
+            1 & -i \\
+            1 & i
+        \end{pmatrix}
+        \begin{pmatrix}
+            \phi_0 (x) \phi_1 (y) \\
+            \phi_1 (x) \phi_0 (y)
+        \end{pmatrix}
+        ] \\[2mm]
+        & = \frac{1}{\sqrt{2}} 
+        \begin{pmatrix}
+            1 & -i \\
+            1 & i
+        \end{pmatrix}
+        L_z 
+        \begin{pmatrix}
+            \phi_0 (x) \phi_1 (y) \\
+            \phi_1 (x) \phi_0 (y)
+        \end{pmatrix} \\[2mm]
+        & = \frac{1}{\sqrt{2}} 
+        \begin{pmatrix}
+            1 & -i \\
+            1 & i
+        \end{pmatrix}
+        \begin{pmatrix}
+            0 & -i \hbar \\
+            i \hbar & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            \phi_0 (x) \phi_1 (y) \\
+            \phi_1 (x) \phi_0 (y)
+        \end{pmatrix} \\[2mm]
+        & = \frac{1}{\sqrt{2}} 
+        \begin{pmatrix}
+            1 & -i \\
+            1 & i
+        \end{pmatrix}
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1 & 1 \\
+            i & -i
+        \end{pmatrix}
+        \begin{pmatrix}
+            \hbar & 0 \\
+            0 & - \hbar
+        \end{pmatrix}
+        \frac{1}{\sqrt{2}} 
+        \begin{pmatrix}
+            1 & -i \\
+            1 & i
+        \end{pmatrix}
+        \begin{pmatrix}
+            \phi_0 (x) \phi_1 (y) \\
+            \phi_1 (x) \phi_0 (y)
+        \end{pmatrix} \\[2mm]
+        & = 
+        \begin{pmatrix}
+            \hbar & 0 \\
+            0 & - \hbar
+        \end{pmatrix}
+        \frac{1}{\sqrt{2}} 
+        \begin{pmatrix}
+            1 & -i \\
+            1 & i
+        \end{pmatrix}
+        \begin{pmatrix}
+            \phi_0 (x) \phi_1 (y) \\
+            \phi_1 (x) \phi_0 (y)
+        \end{pmatrix}
+    \end{align*}
+    が成り立つ. 
+    つまり,
+    \begin{align*}
+        & L_z \qty[\frac{1}{\sqrt{2}} \phi_0 (x) \phi_1 (y) - \frac{i}{\sqrt{2}} \phi_1 (x) \phi_0 (y)] = \hbar \qty[\frac{1}{\sqrt{2}} \phi_0 (x) \phi_1 (y) - \frac{i}{\sqrt{2}} \phi_1 (x) \phi_0 (y)] \\[2mm]
+        & L_z \qty[\frac{1}{\sqrt{2}} \phi_0 (x) \phi_1 (y) + \frac{i}{\sqrt{2}} \phi_1 (x) \phi_0 (y)] = - \hbar \qty[\frac{1}{\sqrt{2}} \phi_0 (x) \phi_1 (y) + \frac{i}{\sqrt{2}} \phi_1 (x) \phi_0 (y)]
+    \end{align*}
+    となるので, $ L_z $ の固有値は $ \pm \hbar $ である.
+\end{answer}
+
+\problem{3}
+前問 \setcounter{prob}{2} \Roman{prob} の系の磁場に対する応答を考えよう.
+
+\question{7}
+一様な磁束密度 $ B $ を $ xy $ 面と垂直に印加すると, ハミルトニアンは以下のように与えられる.
+\begin{align*}
+    H(B) = \frac{1}{2m} \qty[\qty(p_x + e A_x)^2 + \qty(p_y + e A_y)^2 ] + \frac{1}{2} m \omega^2 \qty(x^2 + y^2)
+\end{align*}
+但し $ \displaystyle \qty(A_x, A_y) = \frac{B}{2} (-y, x) $ とする. 
+$ e $ は電子の電荷の絶対値である. 
+ハミルトニアンを, $ B $ に関して $ H(B) = H(0) + W_1 B + W_2 B^2 $ と展開するとき, $ W_1 $ を求めよ.
+\begin{answer}
+    \begin{align*}
+        H(B) 
+        & = \frac{1}{2m} \qty[\qty(p_x + e A_x)^2 + \qty(p_y + e A_y)^2 ] + \frac{1}{2} m \omega^2 \qty(x^2 + y^2) \\[2mm]
+        & = \frac{1}{2m} \qty[\qty(p_x - \frac{ey}{2} B)^2 + \qty(p_y + \frac{ex}{2} B)^2 ] + \frac{1}{2} m \omega^2 \qty(x^2 + y^2) \\[2mm]
+        & = \frac{1}{2m} \qty(p_x^2 + p_y^2) + \frac{1}{2} m \omega^2 \qty(x^2 + y^2) + \frac{e}{2m} \qty(xp_y - yp_x) B + \frac{e^2}{8m} \qty(x^2 + y^2) B^2
+    \end{align*}
+    より, $ \displaystyle W_1 = \frac{e}{2m} (xp_y - yp_x) $ である.
+\end{answer}
+\begin{supplement}
+    一様磁場の関係する問題では, よく使われるゲージが2つある.
+    \begin{itemize}
+        \item 対称ゲージ : $ \displaystyle \bm{A} = (- \frac{B}{2} y, \frac{B}{2} x, 0) $ \\[-3mm]
+        \item ランダウゲージ : $ \bm{A} = (0, Bx, 0) $
+    \end{itemize}
+    これらはともに $ \bm{B} = (0, 0, B) $ に対応する.
+\end{supplement}
+
+\question{8}
+固有状態のエネルギーを $ E(B) $ とすると, その状態の $ B = 0 $ における磁気モーメントは
+\begin{align*}
+    \mu = - \left. \pdv{E(B)}{B} \right|_{B=0}
+\end{align*}
+で与えられる. 
+前問 \Roman{prob} でエネルギーが $ E_0, E_1 $ となる全ての状態に対して $ \mu $ を求めよ.
+\begin{answer}
+    $ H, L_z $ のそれぞれ固有値 $ (n + 1) \hbar \omega , \; l \hbar $ に属する同時固有状態 $ \psi_{n, l} (x, y) $ を次のように定める.
+    \begin{align*}
+        & \psi_{0, 0} (x, y) \equiv \phi_0 (x) \phi_0 (y), \\
+        & \psi_{1, 1} (x, y) \equiv \frac{1}{\sqrt{2}} \phi_0 (x) \phi_1 (y) - \frac{i}{\sqrt{2}} \phi_1 (x) \phi_0 (y), \\
+        & \psi_{1, -1} (x, y) \equiv \frac{1}{\sqrt{2}} \phi_0 (x) \phi_1 (y) + \frac{i}{\sqrt{2}} \phi_1 (x) \phi_0 (y).
+    \end{align*}
+    これらは $ \displaystyle H(B) = H + \frac{eB}{2m} L_z + W_2 B^2 $ の固有状態ではないので, $ B^2 $ の項を無視して考える.
+    このとき, $ \displaystyle H(B) \psi_{n, l} (x, y) = \qty[(n+1) \hbar \omega + \frac{eB}{2m} l \hbar ] \psi_{n, l} (x, y) $ なので, 状態 $ \psi_{n, l} (x, y) $ の $ B = 0 $ における磁気モーメントは $ \displaystyle - \frac{le \hbar}{2m} $ となる. 
+    よって, 状態 $ \psi_{0, 0} (x, y), \; \psi_{1, 1} (x, y), \; \psi_{1, -1} (x, y) $ の $ B = 0 $ における磁気モーメントはそれぞれ $ \displaystyle 0, \; - \frac{e \hbar}{2m}, \; \frac{e \hbar}{2m} $ である.
+\end{answer}
+
+\question{9}
+$ B^2 $ の項を無視せずに, $ H(B) $ の厳密な固有エネルギーを考えよう. 
+$ B = 0 $ でエネルギーが $ E_0, E_1 $ となる全ての状態に関して, 任意の $ B $ における固有エネルギーを求めよ. 
+また, それらの $ \omega \to 0 $ の極限を求めよ（ヒント : $ B^2 $ の項は調和振動子ポテンシャルとまとめることができる）.
+\begin{answer}
+    角振動数 $ \omega_c ,\; \Omega $ を $ \displaystyle \omega_c \equiv \frac{eB}{m}, \; \Omega \equiv \sqrt{\omega^2 + \frac{\omega_c^2}{4}} $ とすると, ハミルトニアンは
+    \begin{align*}
+        H = \frac{1}{2m} \qty(p_x^2 + p_y^2) + \frac{1}{2} m \Omega^2 \qty(x^2 + y^2) + \frac{1}{2} \omega_c L_z
+    \end{align*}
+    となるので, $ \phi_0 (x), \; \phi_1 (x) $ を新たに
+    \begin{align*}
+        \phi_0 (x) \equiv \exp \qty(- \frac{m \Omega}{2 \hbar} x^2), \quad \phi_1 (x) \equiv x \exp \qty(- \frac{m \Omega}{2 \hbar} x^2)
+    \end{align*}
+    として, $ \psi_{0, 0} (x, y), \; \psi_{1, 1} (x, y), \; \psi_{1, -1} (x, y) $ を新たに
+    \begin{align*}
+        & \psi_{0, 0} (x, y) \equiv \phi_0 (x) \phi_0 (y), \\
+        & \psi_{1, 1} (x, y) \equiv \frac{1}{\sqrt{2}} \phi_0 (x) \phi_1 (y) - \frac{i}{\sqrt{2}} \phi_1 (x) \phi_0 (y), \\
+        & \psi_{1, -1} (x, y) \equiv \frac{1}{\sqrt{2}} \phi_0 (x) \phi_1 (y) + \frac{i}{\sqrt{2}} \phi_1 (x) \phi_0 (y)
+    \end{align*}
+    とすると, これらは $ H(B) $ の固有状態である. 
+    状態 $ \psi_{n, l} (x, y) $ のエネルギーは $ \displaystyle (n+1) \hbar \Omega + \frac{l}{2} \hbar \omega_c $ なので, $ B = 0 $ ではエネルギーが $ E_n $ になる. 
+    また, $ \omega \to 0 $ ではエネルギーは $ \displaystyle \frac{1}{2} (n + l + 1) \hbar \omega_c $ となる.
+    \begin{itemize}
+        \item $ \psi_{0, 0} (x, y) $ : $ \displaystyle E(B) = \hbar \sqrt{\omega^2 + \frac{e^2B^2}{4m^2}} \to \frac{\hbar eB}{2m} $ \\[2mm]
+        \item $ \psi_{1, 1} (x, y) $ : $ \displaystyle E(B) = 2 \hbar \sqrt{\omega^2 + \frac{e^2B^2}{4m^2}} + \frac{\hbar eB}{2m} \to \frac{3 \hbar eB}{2m} $ \\[2mm]
+        \item $ \psi_{1, -1} (x, y) $ : $ \displaystyle E(B) = 2 \hbar \sqrt{\omega^2 + \frac{e^2B^2}{4m^2}} - \frac{\hbar eB}{2m} \to \frac{\hbar eB}{2m} $
+    \end{itemize}
+\end{answer}
+\begin{supplement}
+    $ \omega \to 0 $ の極限をとって考えるということは, 調和振動子ポテンシャルのない系について考えるということと同じである. 
+    しかし, 外場が磁場のみである状況でも, 粒子の電荷を $ q $ , サイクロトロン振動数を $ \displaystyle \omega_c = \frac{qB}{m} $ とすると, ハミルトニアンは
+    \begin{align*}
+        H = \frac{1}{2m} \qty(p_x^2 + p_y^2) + \frac{1}{2} m \qty(\frac{\omega_c}{2})^2 \qty(x^2 + y^2) + \frac{1}{2} \omega_c L_z
+    \end{align*}
+    となり, 問題は調和振動子の問題に帰着する. 
+    右辺第3項は回転のエネルギーである.
+\end{supplement}
+
+\end{document}

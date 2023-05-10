@@ -1,0 +1,111 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%    Packages and libraries                                              %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{subfiles}
+\usepackage{tikz}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\rightmark}
+\fancyfoot[C]{\thepage}
+
+\usepackage{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+    colorlinks=true, 
+    citecolor=blue, 
+    linkcolor=blue, 
+    urlcolor=blue
+}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%    Settings of style                                                   %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  Enabling page breaks in math environment
+\allowdisplaybreaks[4]
+
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\thefootnote}{*\arabic{footnote}}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+%%  I, II, III,...
+\newcounter{prob}
+\newcommand{\problem}[1]{
+    \vspace{4mm} 
+    \noindent 
+    \setcounter{prob}{#1} 
+    \textbf{\Roman{prob}}.
+}
+
+%%  (1), (2), (3),...
+\newcounter{que}
+\newcommand{\question}[1]{
+    \vspace{4mm} 
+    \noindent 
+    \setcounter{que}{#1} 
+    \textbf{(\theque)}
+}
+
+%%  Answer
+\newenvironment{answer}{
+    \begin{tcolorbox}[
+        sharp corners, 
+        colback=red!10, 
+        colframe=white, 
+        breakable=true
+    ] 
+    \textbf{答案} 
+    \hspace{1pt} 
+    \setlength{\parindent}{10pt}
+}{
+    \end{tcolorbox}
+}
+
+%%  Supplement
+\newenvironment{supplement}{
+    \begin{tcolorbox}[
+        sharp corners, 
+        colback=blue!10, 
+        colframe=white, 
+        breakable=true
+    ] 
+    \textbf{補足} 
+    \hspace{1pt} 
+    \setlength{\parindent}{10pt}
+}{
+    \end{tcolorbox}
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%    Other Commands                                                      %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  Constant
+\newcommand{\const}{\mathrm{const.}}
+
+
+
+

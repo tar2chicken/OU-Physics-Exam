@@ -1,0 +1,382 @@
+\documentclass[../../ou-physics-exam.tex]{subfiles}
+
+\begin{document}
+\subsection*{問題3}
+\addcontentsline{toc}{subsection}{問題3}
+\markboth{2022年度}{問題3}
+量子力学で1次元の散乱問題を考える. 
+$ x $ 軸上, 負の無限大から質量 $ m $ の粒子が正のエネルギー $ E $ で入射してくるものとする. 
+以下の問いに答えよ. 
+ただし, プランク定数を $ 2 \pi $ で割ったものを $ \hbar $ とする.
+
+\problem{1}
+まず, ポテンシャルが
+\begin{align*}
+    V (x) = - V_0 \delta (x)
+\end{align*}
+で与えられる場合を考える. 
+ただし, $ V_0 $ は正の有限な実数であり, $ \delta (x) $ はディラックのデルタ関数である. 
+波動関数 $ \phi (x) $ がみたすシュレディンガー方程式は,
+\begin{align*}
+    \qty[ - \frac{\hbar^2}{2m} \dv[2]{x} + V(x) ] \phi (x) = E \phi (x)
+\end{align*}
+で与えられる. 
+$ x < 0 $ における波動関数を
+\begin{align*}
+    \phi_1 (x) = e^{iqx} + r e^{-iqx}
+\end{align*}
+とし, $ x > 0 $ における波動関数を
+\begin{align*}
+    \phi_2 (x) = t e^{iqx}
+\end{align*}
+とする. 
+ただし $ q = \sqrt{2mE}/\hbar $ であり, $ r, t $ は複素係数である. 
+$ \phi_1 (x) $ の式の右辺第1項は $ x $ の正の方向に伝播する入射波を, 右辺第2項は反射波を表している. 
+一方, $ \phi_2 (x) $ の式の右辺は透過波を表している.
+
+\question{1}
+$ \phi_1 (x) $ と $ \phi_2 (x) $ が $ x \to 0 $ で一致することから, $ r $ と $ t $ がみたす関係式を求めよ.
+\begin{answer}
+    $ x \to 0 $ で $ \phi_1 (x) \to 1 + r, \quad \phi_2 (x) \to t $ なので, $ r $ と $ t $ は $ 1 + r = t $ をみたす.
+\end{answer}
+
+\question{2}
+シュレディンガー方程式の両辺を $ x = - \epsilon $ から $ x = \epsilon $ まで積分し ( $ \epsilon > 0 $ ), $ \epsilon \to 0 $ の極限をとることにより, $ r $ と $ t $ がみたすもう一つの関係式が以下の形で求まる.
+\begin{align*}
+    t + r = \lambda t + 1
+\end{align*}
+このとき, $ \lambda $ を無次元量 $ \displaystyle \omega \equiv \frac{\hbar^2 q}{mV_0} $ を用いて表せ.
+\begin{answer}
+    シュレディンガー方程式
+    \begin{align*}
+        \qty[ - \frac{\hbar^2}{2m} \dv[2]{x} - V_0 \delta (x) ] \phi (x) = E \phi (x)
+    \end{align*}
+    の両辺を積分すると,
+    \begin{align*}
+        - \frac{\hbar^2}{2m} \qty[ \phi_2'(\epsilon) - \phi_1' (- \epsilon) ] - V_0 \phi (0) = 0
+    \end{align*}
+    となる. 
+    $ \epsilon \to 0 $ で,
+    \begin{align*}
+        0 
+        & = \phi_2'(\epsilon) - \phi_1' (- \epsilon) + \frac{2mV_0}{\hbar^2} \phi (0) \\
+        & = iqt e^{iq \epsilon } - iq e^{-iq \epsilon } + iqr e^{iq \epsilon } + iq \frac{2mV_0}{iq \hbar^2} t \\
+        & \to iq \qty(t - 1 + r + \frac{2t}{i \omega})
+    \end{align*}
+    となるので, $ \displaystyle t + r = \frac{2i}{\omega} t + 1 $ が成り立つ. 
+    よって, 求める無次元量は $ \displaystyle \frac{2i}{\omega} $ である.
+\end{answer}
+
+\question{3}
+反射率 $ |r|^2 $ と透過率 $ |t|^2 $ をそれぞれ $ \omega $ を用いて表せ.
+\begin{answer}
+    (1), (2) の結果から連立方程式
+    \begin{align*}
+        \begin{pmatrix}
+            1 & -1 \\
+            1 & 1 - \frac{2i}{\omega}
+        \end{pmatrix}
+        \begin{pmatrix}
+            r \\ t
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            -1 \\ 1
+        \end{pmatrix}
+    \end{align*}
+    を立てて解くと,
+    \begin{align*}
+        \begin{pmatrix}
+            r \\ t
+        \end{pmatrix}
+        = \frac{\omega}{2(\omega - i)}
+        \begin{pmatrix}
+            1 - \frac{2i}{\omega} & 1 \\
+            -1 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+            -1 \\ 1
+        \end{pmatrix}
+        = \frac{\omega}{2(\omega - i)}
+        \begin{pmatrix}
+            \frac{2i}{\omega} \\ 2
+        \end{pmatrix}
+        = \frac{1}{\omega - i}
+        \begin{pmatrix}
+            i \\ \omega
+        \end{pmatrix}
+    \end{align*}
+    となる. 
+    よって,
+    \begin{align*}
+        |r|^2 = \frac{1}{\omega^2 + 1} , \quad |t|^2 = \frac{\omega^2}{\omega^2 + 1}.
+    \end{align*}
+\end{answer}
+
+\question{4}
+$ V_0 $ が一定のとき, $ E \to 0 $ および $ E \to \infty $ の極限における $ |r|^2 $ と $ |t|^2 $ の値を求めよ. 
+次に, $ E $ が一定の下で $ V_0 \to - V_0 $ としたとき（引力的ポテンシャルが斥力的ポテンシャルになったとき）, $ |r|^2 $ と $ |t|^2 $ がどうなるかを簡潔に答えよ.
+\begin{answer}
+    $ E \to 0 $ で $ \omega \to 0 $ より, $ |r|^2 \to 1, \; |t|^2 \to 0 $ となる. 
+    また, $ E \to \infty $ で $ \omega \to \infty $ より, $ |r|^2 \to 0, \; |t|^2 \to 1 $ となる. 
+    さらに, $ V_0 \to -V_0 $ で $ \omega \to - \omega $ となるが, $ |r|^2, |t|^2 $ は $ \omega^2 $ のみに依存するので, ポテンシャルの符号が変わっても反射率と透過率は変わらない.
+\end{answer}
+
+\problem{2}
+次に, ポテンシャルが
+\begin{align*}
+    V_D (x) = - V_0 \delta (x) - V_0 \delta (x - a)
+\end{align*}
+で与えられる場合の散乱問題を考える. 
+ただし $ a > 0 $ とする.
+
+\question{5}
+$ x < 0 $ における波動関数を
+\begin{align*}
+    \psi_1 (x) = A_1 e^{iqx} + B_1 e^{-iqx}
+\end{align*}
+とし, $ 0 < x < a $ における波動関数を
+\begin{align*}
+    \psi_2 (x) = C_1 e^{iqx} + D_1 e^{-iqx}
+\end{align*}
+とする. 
+これらの波動関数の係数には,
+\begin{align*}
+    B_1 = rA_1 + tD_1 \\
+    C_1 = tA_1 + rD_1
+\end{align*}
+という関係がある. 
+ただし, $ r, t $ は前問 \setcounter{prob}{1} \Roman{prob} で導入した複素係数である. 
+それらの物理的解釈に留意しつつ, 上記の2つの関係式が成り立つ理由を説明せよ.
+\begin{answer}
+    $ x = 0 $ にあるポテンシャル $ - V_0 \delta (x) $ に関する反射と透過を考える. 
+    $ x < 0 $ において $ x $ の負の方向に伝播する波は, $ x < 0 $ から来た波 $ A_1 e^{iqx} $ が反射されたものと, $ x > 0 $ から来た波 $ D_1 e^{-iqx} $ が透過されたものの重ね合わせである. 
+    また同様に, $ 0 < x < a $ において $ x $ の正の方向に伝播する波は, $ x < 0 $ から来た波が透過されたものと, $ x > 0 $ から来た波が反射されたものの重ね合わせである. 
+    このポテンシャルに関する反射と透過の係数はそれぞれ $ r, t $ なので,
+    \begin{align*}
+        B_1 = rA_1 + tD_1 \\
+        C_1 = tA_1 + rD_1
+    \end{align*}
+    が成り立つ.
+\end{answer}
+
+\question{6}
+(5) で示した2つの関係式を用いて以下の表式を作る.
+\begin{align*}
+    \begin{pmatrix}
+        C_1 \\ D_1
+    \end{pmatrix} = Z
+    \begin{pmatrix}
+        A_1 \\ B_1
+    \end{pmatrix}
+\end{align*}
+ここで $ Z $ は2行2列の行列である. 
+$ Z $ の各要素を $ r, t $ を用いて表せ.
+\begin{answer}
+    連立方程式
+    \begin{align*}
+        \begin{pmatrix}
+            1 & -r \\
+            0 & t
+        \end{pmatrix}
+        \begin{pmatrix}
+            C_1 \\ D_1
+        \end{pmatrix} =
+        \begin{pmatrix}
+            tA_1 \\ -rA_1 + B_1
+        \end{pmatrix}
+    \end{align*}
+    を解くと,
+    \begin{align*}
+        \begin{pmatrix}
+            C_1 \\ D_1
+        \end{pmatrix}
+        = \frac{1}{t} 
+        \begin{pmatrix}
+            t & r \\
+            0 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+            t & 0 \\
+            -r & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+            A_1 \\ B_1
+        \end{pmatrix}
+        = \frac{1}{t} 
+        \begin{pmatrix}
+            t^2 - r^2 & r \\
+            -r & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+            A_1 \\ B_1
+        \end{pmatrix}
+    \end{align*}
+    となる. 
+    よって,
+    \begin{align*}
+        Z = \frac{1}{t} 
+        \begin{pmatrix}
+            t^2 - r^2 & r \\
+            -r & 1
+        \end{pmatrix}.
+    \end{align*}
+\end{answer}
+
+\question{7}
+次に, $ 0 < x < a $ における波動関数を
+\begin{align*}
+    \psi_2 (x) = A_2 e^{iq(x-a)} + B_2 e^{-iq(x-a)}
+\end{align*}
+と表現してみよう. 
+この式と, (5) で導入した $ \psi_2 (x) $ の表式を比較することにより,
+\begin{align*}
+    \begin{pmatrix}
+        A_2 \\ B_2
+    \end{pmatrix} = Y
+    \begin{pmatrix}
+        C_1 \\ D_1
+    \end{pmatrix}
+\end{align*}
+をみたす2行2列の行列 $ Y $ の各要素を求めよ.
+\begin{answer}
+    $ \psi_2 (x) = A_2 e^{-iqa} e^{iqx} + B_2 e^{iqa} e^{-iqx} $ より, $ A_2 = e^{iqa} C_1, \; B_2 = e^{-iqa} D_1 $ である. 
+    よって,
+    \begin{align*}
+        Y = 
+        \begin{pmatrix}
+            e^{iqa} & 0 \\
+            0 & e^{-iqa}
+        \end{pmatrix}
+    \end{align*}
+    となる.
+\end{answer}
+
+\question{8}
+$ x > a $ における波動関数を
+\begin{align*}
+    \psi_3 (x) = C_2 e^{iq(x-a)} + D_2 e^{-iq(x-a)}
+\end{align*}
+とする. 
+この式と, (7) で導入した $ \psi_2 (x) $ の表式に対して, (5) と同じ考え方を適用すれば, $ C_2, D_2 $ は $ A_2, B_2 $ を用いて表すことができる. 
+このことと, (5)-(7) の結果を組み合わせることにより,
+\begin{align*}
+    \begin{pmatrix}
+        C_2 \\ D_2
+    \end{pmatrix} = X 
+    \begin{pmatrix}
+        A_1 \\ B_1
+    \end{pmatrix}
+\end{align*}
+が得られる. 
+$ X $ を $ Z $ と $ Y $ を用いて表せ.
+\begin{answer}
+    $ A_2, B_2, C_2, D_2 $ については (5), (6) と同様に
+    \begin{align*}
+        \begin{pmatrix}
+            C_2 \\ D_2
+        \end{pmatrix} = Z 
+        \begin{pmatrix}
+            A_2 \\ B_2
+        \end{pmatrix}
+    \end{align*}
+    が成り立つので,
+    \begin{align*}
+        \begin{pmatrix}
+            C_2 \\ D_2
+        \end{pmatrix} = ZY 
+        \begin{pmatrix}
+            C_1 \\ D_1
+        \end{pmatrix} = ZYZ 
+        \begin{pmatrix}
+            A_1 \\ B_1
+        \end{pmatrix}
+    \end{align*}
+    となる. 
+    よって, $ X = ZYZ $ である.
+\end{answer}
+
+\question{9}
+(8) で得た表式において $ C_2 = t_2, \; D_2 = 0, \; A_1 = 1, B_1 = r_2 $ とすれば, $ V_D (x) $ による反射率 $ |r_2|^2 $ と透過率 $ |t_2|^2 $ を求めることができる. 
+ここでは, $ a = 2n \pi / q $ （ $ n $ : 自然数）となる場合を考えよう. 
+まず $ Z $ を $ \omega $ を用いて表した上で, $ |r_2|^2 $ と $ |t_2|^2 $ を $ \omega $ を用いて表せ. 
+また, 得られた結果の物理的意味を, (3) の結果と比較して簡潔に論じよ.
+\begin{answer}
+    \begin{align*}
+        & Z = \frac{1}{t} 
+        \begin{pmatrix}
+            t^2 - r^2 & r \\
+            -r & 1
+        \end{pmatrix}, \\
+        & \frac{t^2 - r^2}{t} = \frac{1}{\omega - i} \frac{\omega^2 + 1}{\omega} = \frac{\omega + i}{\omega} = 1 + \frac{i}{\omega}, \\[2mm]
+        & \frac{r}{t} = \frac{i}{\omega}, \qquad \frac{1}{t} = 1 - \frac{i}{\omega}
+    \end{align*}
+    より,
+    \begin{align*}
+        Z = 
+        \begin{pmatrix}
+            1 + \frac{i}{\omega} & \frac{i}{\omega} \\
+            - \frac{i}{\omega} & 1 - \frac{i}{\omega}
+        \end{pmatrix}
+    \end{align*}
+    となる. 
+    また, $ a = 2n \pi / q $ のとき $ Y $ は単位行列になるので, $ X = Z^2 $ より,
+    \begin{align*}
+        \begin{pmatrix}
+            t_2 \\ 0
+        \end{pmatrix} = Z^2 
+        \begin{pmatrix}
+            1 \\ r_2
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            1 + \frac{2i}{\omega} & \frac{2i}{\omega} \\
+            - \frac{2i}{\omega} & 1 - \frac{2i}{\omega}
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 \\ r_2
+        \end{pmatrix}
+    \end{align*}
+    となる. 
+    よって, 連立方程式
+    \begin{align*}
+        \begin{pmatrix}
+            - \frac{2i}{\omega} & 1 \\
+            1 - \frac{2i}{\omega} & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            r_2 \\ t_2
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            1 + \frac{2i}{\omega} \\ \frac{2i}{\omega}
+        \end{pmatrix}
+    \end{align*}
+    を解くと,
+    \begin{align*}
+        \begin{pmatrix}
+            r_2 \\ t_2
+        \end{pmatrix}
+        = \frac{1}{\frac{2i}{\omega} - 1} 
+        \begin{pmatrix}
+            0 & -1 \\
+            \frac{2i}{\omega} - 1 & - \frac{2i}{\omega}
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 + \frac{2i}{\omega} \\ \frac{2i}{\omega}
+        \end{pmatrix}
+        = \frac{1}{\frac{2i}{\omega} - 1} 
+        \begin{pmatrix}
+            - \frac{2i}{\omega} \\ -1
+        \end{pmatrix}
+        = \frac{1}{\omega - 2i}
+        \begin{pmatrix}
+            2i \\ \omega
+        \end{pmatrix}
+    \end{align*}
+    となるので,
+    \begin{align*}
+        |r_2|^2 = \frac{4}{\omega^2 + 4}, \quad |t_2|^2 = \frac{\omega^2}{\omega^2 + 4}
+    \end{align*}
+    となる. 
+    この結果を (3) と比較すると, ポテンシャル障壁の数が増えたことで反射率が上がり透過率が下がったことが分かる.
+\end{answer}
+
+\end{document}

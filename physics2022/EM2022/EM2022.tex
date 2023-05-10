@@ -1,0 +1,263 @@
+\documentclass[../../ou-physics-exam.tex]{subfiles}
+
+\begin{document}
+\subsection*{問題2}
+\addcontentsline{toc}{subsection}{問題2}
+\markboth{2022年度}{問題2}
+3次元直交座標系の3軸を $ x, y, z $ とする. 
+真空中に原点を中心とする半径 $ a $ の円 $ C $ が $ xy $ 平面上にある. 
+$ C $ の円周上に固定された線密度 $ q $ の電荷が一様に分布している.
+
+\problem{1}
+まず, $ C $ が静止している場合について考える. 
+真空中の位置 $ \bm{r'} $ に置かれた点電荷 $ Q $ が位置 $ \bm{r} $ に作る静電ポテンシャル $ \phi_0 $ は
+\begin{align*}
+    \phi_0 (\bm{r} ) = \frac{Q}{4 \pi \varepsilon_0 |\bm{r} - \bm{r'} |}
+\end{align*}
+と表される. 
+ここで, $ \varepsilon_0 $ は真空の誘電率である. 
+以下の問いに答えよ.
+
+\question{1}
+$ C $ の電荷によって位置 $ \bm{r} = (0, 0, z) $ に生じる静電ポテンシャル $ \phi (\bm{r} ) $ を求めよ.
+\begin{answer}
+    \begin{align*}
+        \phi (\bm{r} ) = \int_0^{2 \pi} \frac{qa \dd{\theta } }{4 \pi \varepsilon_0 \sqrt{z^2 + a^2}} = \frac{qa}{2 \varepsilon_0 \sqrt{z^2 + a^2}}.
+    \end{align*}
+\end{answer}
+
+\question{2}
+$ C $ の電荷によって位置 $ \bm{r} = (0, 0, z) $ に生じる電場 $ \bm{E} (\bm{r} ) $ を求めよ. 
+また, 原点に置かれた点電荷 $ Q' $ が受ける力を求めよ.
+\begin{answer}
+    $ \bm{E} (\bm{r} ) = - \grad \phi (\bm{r} ) $ より,
+    \begin{align*}
+        E_x (\bm{r} ) = E_y (\bm{r} ) = 0, \quad E_z (\bm{r} ) = \frac{qaz}{2 \varepsilon_0 (z^2 + a^2)^{\frac{3}{2}}}.
+    \end{align*}
+    また, $ \bm{E} (\bm{0} ) = \bm{0} $ なので, 原点に置かれた点電荷が受ける力は 
+$ \bm{0} $ である.
+\end{answer}
+
+\question{3}
+$ C $ の電荷分布による位置 $ \bm{r} = (x, y, z) $ での電場 $ \bm{E} (\bm{r} ) $ は, $ C $ の線要素ベクトル $ \dd{\bm{r'} } $ の大きさを $ \dd{s'} = | \dd{\bm{r'} } | $ として,
+\begin{align*}
+    \bm{E} (\bm{r} ) = \frac{1}{4 \pi \varepsilon_0} \int_C q \dd{s'} \frac{\bm{r} - \bm{r'} }{| \bm{r} - \bm{r'} |^3}
+\end{align*}
+と書ける. 
+ここで, $ z $ 軸まわりの方位角 $ \varphi $ を用い, $ C $ 上の座標を $ \bm{r'} = (a \cos \varphi , a \sin \varphi , 0) $ と表すのが便利である. 
+$ | \bm{r} | \ll a $ の条件で, $ x, y, z $ の1次の項まで展開した式
+\begin{align*}
+    | \bm{r} - \bm{r'} |^{-3} \sim a^{-3} \qty[ 1 + \frac{3}{a} (x \cos \varphi + y \sin \varphi ) ]
+\end{align*}
+を利用して, 原点近傍における $ \bm{E} (\bm{r}) $ を計算せよ. 
+このとき, $ q $ と逆符号の点電荷を原点から $ z $ 軸方向にわずかにずれた位置に置いたとき, 点電荷が受ける力の向きを答えよ. 
+また, ずれの方向が $ xy $ 平面上（ $ z = 0 $ ）のとき, 点電荷が受ける力の向きを答えよ.
+\begin{answer}
+    原点近傍において,
+    \begin{align*}
+        \bm{E} (\bm{r} ) 
+        & = \frac{1}{4 \pi \varepsilon_0} \int_C q \dd{s'} \frac{\bm{r} - \bm{r'} }{|\bm{r} - \bm{r'} |^3 } \\[2mm]
+        & \sim \frac{q}{4 \pi \varepsilon_0 } \int_0^{2 \pi } a \dd{\varphi} 
+        \begin{pmatrix}
+            x - a \cos \varphi \\
+            y - a \sin \varphi \\
+            z
+        \end{pmatrix}
+        \qty(1 + \frac{3x}{a} \cos \varphi + \frac{3y}{a} \sin \varphi ) \\[2mm]
+        & = \frac{q}{4 \pi \varepsilon_0 } \int_0^{2 \pi } \dd{\varphi } 
+        \begin{pmatrix}
+            (x - a \cos \varphi) (a + 3x \cos \varphi + 3y \sin \varphi) \\
+            (y - a \sin \varphi) (a + 3x \cos \varphi + 3y \sin \varphi) \\
+            az + 3ax \cos \varphi + 3ay \sin \varphi
+        \end{pmatrix} \\[2mm]
+        & = \frac{q}{4 \pi \varepsilon_0 } \int_0^{2 \pi } \dd{\varphi } 
+        \begin{pmatrix}
+            ax - 3ax \cos^2 \varphi \\
+            ay - 3ay \sin^2 \varphi \\
+            az
+        \end{pmatrix} \\[2mm]
+        & = \frac{q}{4 \pi \varepsilon_0 } 
+        \begin{pmatrix}
+            2 \pi ax - 3 \pi ax \\
+            2 \pi ay - 3 \pi ay \\
+            2 \pi az
+        \end{pmatrix} \\[2mm]
+        & = \frac{qa}{4 \varepsilon_0 } 
+        \begin{pmatrix}
+            -x \\ -y \\ 2z
+        \end{pmatrix}.
+    \end{align*}
+    また, $ q $ と逆符号の点電荷が受ける力は, ずれが $ z $ 軸方向のときずれを小さくする向きに, ずれが $ xy $ 平面上のときずれを大きくする向きに, いずれもずれと並行にはたらく.
+\end{answer}
+
+\problem{2}
+次に, $ C $ が原点を中心に電荷とともに $ xy $ 平面内で一定の角速度で回転する場合を考える. 
+回転の向きは $ z $ 軸の $ z $ が正の領域から見て反時計回りとする. 
+これは, 回路 $ C $ に定常電流 $ I $ が生じている状況に他ならない. 
+この電流 $ I $ による位置 $ \bm{r} $ におけるベクトルポテンシャル $ \bm{A} (\bm{r}) $ は
+\begin{align*}
+    \bm{A} (\bm{r}) = \frac{\mu_0 I}{4 \pi } \int_C \frac{\dd{\bm{r'}}}{|\bm{r} - \bm{r'} |}
+\end{align*}
+で与えられる. 
+ここで, $ \mu_0 $ は真空の透磁率である. 
+$ \bm{r'} $ は $ C $ 上の位置, $ \dd{\bm{r'}} $ は $ C $ の線要素ベクトルである. 
+以下の問いに答えよ.
+
+\question{4}
+$ C $ の電流 $ I $ による原点近傍の位置 $ \bm{r} = (x, y, z) $ におけるベクトルポテンシャル $ \bm{A} (\bm{r}) = (A_x, A_y, A_z) $ を, $ | \bm{r} | \ll a $ の条件で $ | \bm{r} - \bm{r'} |^{-1} $ を $ x, y, z $ の1次の項まで展開した式を利用して求めよ.
+\begin{answer}
+    \begin{align*}
+        \frac{1}{| \bm{r} - \bm{r'} |} = \qty[ (x - a \cos \varphi)^2 + (y - a \sin \varphi)^2 + z^2 ]^{- \frac{1}{2}}
+    \end{align*}
+    より,
+    \begin{align*}
+        & \left. \frac{1}{| \bm{r} - \bm{r'} |} \right|_{\bm{r} = 0} = \frac{1}{|\bm{r'}|} = \frac{1}{a}, \\[2mm]
+        & \left. \qty(\pdv{x} \frac{1}{| \bm{r} - \bm{r'} |}) \right|_{\bm{r} = 0} = - \left. \frac{x - a \cos \varphi }{ | \bm{r} - \bm{r'} |^{3}} \right|_{\bm{r} = 0} = \frac{ \cos \varphi}{a^2}, \\[2mm]
+        & \left. \qty(\pdv{y} \frac{1}{| \bm{r} - \bm{r'} |}) \right|_{\bm{r} = 0} = \frac{ \sin \varphi}{a^2}, \\[2mm]
+        & \left. \qty(\pdv{z} \frac{1}{| \bm{r} - \bm{r'} |}) \right|_{\bm{r} = 0} = 0,
+    \end{align*}
+    なので, 原点近傍において,
+    \begin{align*}
+        \frac{1}{| \bm{r} - \bm{r'} |} \sim \frac{1}{a} + \frac{x \cos \varphi}{a^2} + \frac{y \sin \varphi}{a^2} = \frac{1}{a^2} (a + x \cos \varphi + y \sin \varphi)
+    \end{align*}
+    となる. 
+    よって, 原点近傍で,
+    \begin{align*}
+        \bm{A} (\bm{r}) 
+        & \sim \frac{\mu_0 I}{4 \pi} \int_0^{2 \pi} 
+        \begin{pmatrix}
+            -a \sin \varphi \dd{\varphi} \\
+            a \sin \varphi \dd{\varphi} \\
+            0
+        \end{pmatrix}
+        \frac{1}{a^2} (a + x \cos \varphi + y \sin \varphi) \\[2mm]
+        & = \frac{\mu_0 I}{4 \pi a} \int_0^{2 \pi } \dd{\varphi} 
+        \begin{pmatrix}
+            -y \sin^2 \varphi \\
+            x \cos^2 \varphi \\
+            0
+        \end{pmatrix} \\[2mm]
+        & = \frac{\mu_0 I}{4 \pi a} 
+        \begin{pmatrix}
+            - \pi y \\
+            \pi x \\
+            0
+        \end{pmatrix} \\[2mm]
+        & = \frac{\mu_0 I}{4a} 
+        \begin{pmatrix}
+            -y \\ x \\ 0
+        \end{pmatrix}
+    \end{align*}
+    となる.
+\end{answer}
+
+\question{5}
+(4) で求めたベクトルポテンシャルを使って磁束密度 $ \bm{B} $ を求めよ.
+\begin{answer}
+    $ \bm{B} = \curl \bm{A} $ より,
+    \begin{align*}
+        B_x = B_y = 0, \quad B_z = \frac{\mu_0 I}{2a}.
+    \end{align*}
+\end{answer}
+
+\question{6}
+$ C $ の $ z $ 軸まわりの慣性モーメントと角運動量ベクトルをそれぞれ $ \mathcal{I}_C , \; \bm{L} $ とする. 
+電流 $ I $ を $ a, q, \mathcal{I}_C, \bm{L} $ の大きさ $ L $ によって表せ. 
+また, ここで求めた表式と (5) の結果を用いて $ \bm{B} $ と $ \bm{L} $ の関係を求めよ. 
+さらに, 原点に磁気モーメント $ \bm{M} $ を置くとき, $ \bm{M} $ と $ \bm{B} $ のポテンシャルエネルギー（相互作用エネルギー） $ V $ が $ V = - \bm{M} \cdot \bm{B} $ で表されるとして, $ V $ を $ \bm{M} $ と $ \bm{L} $ の内積を含む式で表せ.
+\begin{answer}
+    $ C $ の回転の角速度は $ \displaystyle \frac{L}{\mathcal{I}_C } $ なので, $ \displaystyle I = \frac{qaL}{\mathcal{I}_C } $ である. 
+    また, $ \displaystyle B_z = \frac{\mu_0 qL}{2 \mathcal{I}_C} $ で, $ \bm{L} $ は $ z $ 軸正の向きなので, $ \displaystyle \bm{B} = \frac{\mu_0 q}{2 \mathcal{I}_C} \bm{L} $ が成り立つ. 
+    よって, 原点に磁気モーメント $ \bm{M} $ を置いたとき, 相互作用のポテンシャルエネルギーは $ \displaystyle V = - \frac{\mu_0 q}{2 \mathcal{I}_C} \bm{M} \cdot \bm{L} $ となる.
+\end{answer}
+
+\problem{3}
+最後に, 定常電流 $ I $ が流れている回路 $ C $ の半径 $ a $ が微小である場合を考える. 
+定常電流 $ I $ の向きは前問 \setcounter{prob}{2} \Roman{prob} と同じとする.
+
+\question{7}
+$ C $ の電流 $ I $ による位置 $ \bm{r} = (x, y, z) $ におけるベクトルポテンシャル $ \bm{A} (\bm{r}) = (A_x, A_y, A_z) $ を, $ | \bm{r} | \gg a $ の条件で $ | \bm{r} - \bm{r'} |^{-1} $ を $ a $ の1次の項まで展開した式を利用して表すと,
+\begin{align*}
+    \bm{A} (\bm{r}) = \frac{\mu_0 I a^2}{4r^3} (-y, x, 0)
+\end{align*}
+となる. 
+磁束密度 $ \bm{B} (\bm{r}) $ を求めよ. 
+また, $ \bm{m_1} = (0, 0, \pi Ia^2) $ と定義すると, 磁束密度 $ \bm{B} $ は
+\begin{align*}
+    \bm{B} (\bm{r}) = \frac{\mu_0}{4 \pi r^5} \qty[3 ( \bm{m_1} \cdot \bm{r}) \bm{r} - \bm{m_1} r^2 ]
+\end{align*}
+と一致することを示せ. 
+ただし, $ r = | \bm{r} | $ である.
+\begin{answer}
+    例えば, $ \displaystyle \pdv{x} \frac{1}{r^3} = - \frac{3x}{r^5} $ なので, $ \displaystyle \grad \frac{1}{r^3} = - \frac{3 \bm{r}}{r^5} $ が成り立つ. 
+    よって,
+    \begin{align*}
+        \bm{B} (\bm{r}) 
+        & = \curl \bm{A} \\
+        & = \frac{\mu_0 Ia^2}{4} \qty[ \qty(\grad \frac{1}{r^3}) \times 
+        \begin{pmatrix}
+            -y \\ x \\ 0
+        \end{pmatrix}
+        + \frac{1}{r^3} \curl
+        \begin{pmatrix}
+            -y \\ x \\ 0
+        \end{pmatrix} ] \\
+        & = \frac{\mu_0 Ia^2}{4} \qty[- \frac{3}{r^5} 
+        \begin{pmatrix}
+            x \\ y \\ z
+        \end{pmatrix}
+        \times 
+        \begin{pmatrix}
+            -y \\ x \\ 0
+        \end{pmatrix}
+        + \frac{1}{r^3} 
+        \begin{pmatrix}
+            0 \\ 0 \\ 2
+        \end{pmatrix} ] \\
+        & = \frac{\mu_0 Ia^2}{4r^5} \qty[ 3 
+        \begin{pmatrix}
+            xz \\
+            yz \\
+            z^2 - r^2
+        \end{pmatrix}
+        + r^2 
+        \begin{pmatrix}
+            0 \\ 0 \\ 2
+        \end{pmatrix} ] \\
+        & = \frac{\mu_0 Ia^2}{4r^5} (3z \bm{r} - r^2 \bm{e}_z)
+    \end{align*}
+    となる. 
+    ただし, $ \bm{e}_z = (0, 0, 1) $ である. 
+    また, $ \bm{m_1} = \pi Ia^2 \bm{e}_z $ なので,
+    \begin{align*}
+        \bm{B} (\bm{r}) 
+        & = \frac{\mu_0}{4 \pi r^5} \pi Ia^2 \qty[3 (\bm{e}_z \cdot \bm{r}) \bm{r} - \bm{e}_z r^2 ] \\[2mm]
+        & = \frac{\mu_0}{4 \pi r^5} \qty[3 ( \bm{m_1} \cdot \bm{r}) \bm{r} - \bm{m_1} r^2 ]
+    \end{align*}
+    が成り立つ.
+\end{answer}
+
+\question{8}
+(7) の $ \bm{m_1} $ による磁束密度 $ \bm{B} $ に対して, 原点からの距離 $ r $ の $ z $ 軸上の位置 $ \bm{r} $ に別の磁気モーメント $ \bm{m_2} $ を置く. 
+$ \bm{m_2} = \pm \bm{m_1} $ のとき, それぞれ $ \bm{m_2} $ と $ \bm{B} $ のポテンシャルエネルギー（相互作用エネルギー） $ V $ を $ I, a, r $ を含む式で表せ. 
+次に, 原点からの距離 $ r $ の $ xy $ 平面上の位置 $ \bm{r} $ に $ \bm{m_2} $ を置き直す. 
+$ \bm{m_2} = \pm \bm{m_1} $ のとき, それぞれ同様に $ V $ を求めよ.
+\begin{answer}
+    $ \bm{m_2} $ が $ z $ 軸上のとき, $ \bm{m_1} \cdot \bm{r} = \pi Ia^2 \bm{e}_z \cdot \bm{r} = \pi Ia^2 r $ なので,
+    \begin{align*}
+        V 
+        & = \mp \bm{m_1} \cdot \frac{\mu_0}{4 \pi r^5} \qty[3 ( \bm{m_1} \cdot \bm{r}) \bm{r} - \bm{m_1} r^2 ] \\[2mm]
+        & = \mp \frac{\mu_0}{4 \pi r^5} \qty[3 (\bm{m_1} \cdot \bm{r})^2 - \bm{m_1}^2 r^2] \\[2mm]
+        & = \mp \frac{\pi \mu_0 I^2 a^4}{2 r^3}
+    \end{align*}
+    となる. 
+    また, $ \bm{m_2} $ が $ xy $ 平面上のとき, $ \bm{m_1} \cdot \bm{r} = 0 $ なので,
+    \begin{align*}
+        V 
+        & = \mp \bm{m_1} \cdot \frac{\mu_0}{4 \pi r^5} \qty(- \bm{m_1} r^2 ) \\[2mm]
+        & = \pm \frac{\pi \mu_0 I^2 a^4}{4 r^3} 
+    \end{align*}
+    となる.
+\end{answer}
+
+\end{document}
